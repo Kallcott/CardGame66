@@ -13,7 +13,6 @@ using BOLayer;
 
 // TODO
 // Validate Setting the User's name is unique. 
-// Game thinks every move wins the round after first round is won.
 
 namespace Cards
 {
@@ -31,18 +30,11 @@ namespace Cards
         private void Form1_Load_1(object sender, EventArgs e)
         {
             SetUp();
+            PlayerNameToFormControls(aBoard.P1, nameof(aBoard.P1));
+            PlayerNameToFormControls(aBoard.P2, nameof(aBoard.P2));
         }
 
         #region User Input
-        private void btnHand1_Click(object sender, EventArgs e)
-        {
-            PlayerNameToFormControls(aBoard.P1, nameof(aBoard.P1));
-        }
-
-        private void btnHand2_Click(object sender, EventArgs e)
-        {
-            PlayerNameToFormControls(aBoard.P2, nameof(aBoard.P2));
-        }
 
         private void btnRedeal_Click(object sender, EventArgs e)
         {
@@ -64,7 +56,7 @@ namespace Cards
             //For left click
             if (e.Button == MouseButtons.Left)
             {
-                MessageBox.Show($"{c.FaceValue} of {c.Suit}");
+                //MessageBox.Show($"{c.FaceValue} of {c.Suit}");
 
                 // Can only play from P1, or P2 hands
                 if ((picDragged.Parent.Name.Substring(0, 7) == "pnlHand" &&
@@ -190,22 +182,22 @@ namespace Cards
         /// Chooses between 3 different draw states, then updates the board.
         /// </summary>
         /// <param name="winningPlayer"></param>
-        private void DrawPhase(Player winningPlayer)
+        private void DrawPhase(Player trickWinner)
         {
-            Player losingPlayer = aBoard.OtherPlayer(winningPlayer);
+            Player trickLoser = aBoard.OtherPlayer(trickWinner);
 
             // Normal Draw
             if (aBoard.Deck.Count >= 3)
             {
-                winningPlayer.PlayerHand.AddCard(aBoard.Deck.DealHand(1)[0]);
-                losingPlayer.PlayerHand.AddCard(aBoard.Deck.DealHand(1)[0]);
+                trickWinner.PlayerHand.AddCard(aBoard.Deck.DealHand(1)[0]);
+                trickLoser.PlayerHand.AddCard(aBoard.Deck.DealHand(1)[0]);
             }
 
             // Special draw from Trump
             else if (aBoard.Deck.Count > 1)
             {
-                winningPlayer.PlayerHand.AddCard(aBoard.Deck.DealHand(1)[0]);
-                losingPlayer.PlayerHand.AddCard(aBoard.Deck.DealHand(1)[0]); // The last card of the deck is the Trump
+                trickWinner.PlayerHand.AddCard(aBoard.Deck.DealHand(1)[0]);
+                trickLoser.PlayerHand.AddCard(aBoard.Deck.DealHand(1)[0]); // The last card of the deck is the Trump
                 pnlTrump.Controls.Clear();
             }
             // No Cards in Deck or Trump, No draw
@@ -214,6 +206,7 @@ namespace Cards
             ShowHand(pnlHandP2, aBoard.P2.PlayerHand);
 
         }
+
         /// <summary>
         /// Scores the playzone, tallies to labels, then completes draw. Also checks if round has been won. 
         /// </summary>
@@ -222,17 +215,17 @@ namespace Cards
 
             //The math is done from the class library.
             Tuple<Player, Card> WinnerInfo = aBoard.ComputePlayzone();
-            Player winningPlayer = WinnerInfo.Item1;
+            Player trickWinner = WinnerInfo.Item1;
             Card winningCard = WinnerInfo.Item2;
-            MessageBox.Show($"The winner is {winningPlayer.PlayerName} with the card: {winningCard.FaceValue} of {winningCard.Suit}");
+            MessageBox.Show($"The winner is {trickWinner.PlayerName} with the card: {winningCard.FaceValue} of {winningCard.Suit}");
 
             // Update Score Point Total and Score Panel
-            FindLabel(winningPlayer, "lblScore").Text = winningPlayer.Score.getScore().ToString();
-            Panel panel = FindPanel(winningPlayer, "pnlScore");
-            ShowHand(panel, winningPlayer.Score);
+            FindLabel(trickWinner, "lblScore").Text = trickWinner.Score.getScore().ToString();
+            Panel panel = FindPanel(trickWinner, "pnlScore");
+            ShowHand(panel, trickWinner.Score);
 
             // Checks if the round has been won
-            if (aBoard.IfRoundEnd(out Player roundWinner) != null)
+            if (aBoard.IfRoundEnd(out Player roundWinner, trickWinner) != null)
             {
                 aBoard.RoundEnd(roundWinner);
                 RoundEnd(roundWinner);
@@ -240,7 +233,7 @@ namespace Cards
             }
 
             // Draw Cards
-            DrawPhase(winningPlayer);
+            DrawPhase(trickWinner);
 
         }
 
@@ -252,16 +245,23 @@ namespace Cards
         {
             // Update GamePoints
             FindLabel(roundWinner, "lblGamePoints").Text = roundWinner.GamePoints.ToString();
+            MessageBox.Show($"{ roundWinner.PlayerName} won the round!");
 
             //Clear Score
-            lblScoreP1.Text = lblScoreP2.Text = "0";
-            pnlScoreP1.Controls.Clear();
-            pnlScoreP2.Controls.Clear();
+            FindLabel(aBoard.P1, "lblScore").Text = aBoard.P1.Score.getScore().ToString();
+            FindLabel(aBoard.P2, "lblScore").Text = aBoard.P2.Score.getScore().ToString();
 
             //Refresh Hand
             ShowHand(pnlHandP1, aBoard.P1.PlayerHand);
             ShowHand(pnlHandP2, aBoard.P2.PlayerHand);
+            ShowHand(pnlScoreP1, aBoard.P1.PlayerHand);
+            ShowHand(pnlScoreP2, aBoard.P2.PlayerHand);
             ShowHand(pnlTrump, aBoard.Trump);
+
+            if (roundWinner.GamePoints >= 7)
+            {
+                MessageBox.Show($"Congradulation! {roundWinner.PlayerName} is the winner!");
+            }
         }
 
         #endregion
@@ -415,13 +415,12 @@ namespace Cards
         /// </summary>
         public void HighlightPlayingPlayer()
         {
-            Panel ActivePnl = this
-                .Controls
-                .Find("pnlHand" + aBoard.PlayerWhoCanPlay.PlayerName, true)
-                .OfType<Panel>()
-                .FirstOrDefault();
+            Panel ActivePnl = FindPanel(aBoard.PlayerWhoCanPlay, "pnlHand");
 
-            ActivePnl.BackColor = Color.Red;
+            ActivePnl.Width = 335;
+            ActivePnl.Height = 105;
+            ActivePnl.BackColor = Color.Yellow;
+
         }
 
         /// <summary>
@@ -429,14 +428,16 @@ namespace Cards
         /// </summary>
         public void UnHighlightPlayingPlayer()
         {
-            Panel ActivePnl = this
-                .Controls
-                .Find("pnlHand" + aBoard.PlayerWhoCanPlay.PlayerName, true)
-                .OfType<Panel>()
-                .FirstOrDefault();
+            Panel ActivePnl = FindPanel(aBoard.PlayerWhoCanPlay, "pnlHand");
 
+            ActivePnl.Width = default;
+            ActivePnl.Height = default;
             ActivePnl.BackColor = default;
         }
+
+        #endregion
+
+        #region Utilities
 
         /// <summary>
         /// 1. Request Name Input.
@@ -458,7 +459,14 @@ namespace Cards
                     // Applies user's name to labels.
                     if (c.Name.Substring(c.Name.Length - 6) == "Zone" + nameOfProperty)
                     {
-                        c.Text = player.PlayerName + c.Text;
+                        if (c.Name.Substring(0, 9) == "lblPlayer")
+                        {
+                            c.Text = player.PlayerName;
+                        }
+                        else
+                        {
+                            c.Text = player.PlayerName + c.Text;
+                        }
                     }
                     // Renames the control names to playernames
                     else if (c.Name.Substring(c.Name.Length - 2) == nameOfProperty)
@@ -466,7 +474,7 @@ namespace Cards
                         c.Name = c.Name.Substring(0, c.Name.Length - 2) + player.PlayerName;
 
                         // Assigns Hand tag for internal use
-                        if (c.Name.Substring(0,7) == "pnlHand")
+                        if (c.Name.Substring(0, 7) == "pnlHand")
                         {
                             c.Tag = player.PlayerName;
                         }
@@ -520,13 +528,6 @@ namespace Cards
                 .FirstOrDefault();
         }
 
-
         #endregion
-
-
-
-
-
-
     }
 }

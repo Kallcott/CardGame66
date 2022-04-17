@@ -37,37 +37,42 @@ namespace Cards
             // 
             // TextBox1
             // 
-            this.TextBox1.Location = new System.Drawing.Point(158, 58);
+            this.TextBox1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBox1.Location = new System.Drawing.Point(91, 58);
             this.TextBox1.Name = "TextBox1";
-            this.TextBox1.Size = new System.Drawing.Size(100, 20);
+            this.TextBox1.Size = new System.Drawing.Size(100, 27);
             this.TextBox1.TabIndex = 0;
             this.TextBox1.Visible = false;
             // 
             // lblAsk
             // 
             this.lblAsk.AutoSize = true;
-            this.lblAsk.Location = new System.Drawing.Point(12, 61);
+            this.lblAsk.BackColor = System.Drawing.SystemColors.Control;
+            this.lblAsk.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsk.Location = new System.Drawing.Point(53, 22);
             this.lblAsk.Name = "lblAsk";
-            this.lblAsk.Size = new System.Drawing.Size(118, 13);
+            this.lblAsk.Size = new System.Drawing.Size(176, 20);
             this.lblAsk.TabIndex = 1;
             this.lblAsk.Text = "Please enter your name";
             // 
             // button1
             // 
             this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button1.Location = new System.Drawing.Point(167, 95);
+            this.button1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(104, 95);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(75, 32);
             this.button1.TabIndex = 2;
             this.button1.Text = "OK";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // comboBox1
             // 
+            this.comboBox1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(149, 31);
+            this.comboBox1.Location = new System.Drawing.Point(85, 57);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.Size = new System.Drawing.Size(112, 28);
             this.comboBox1.TabIndex = 3;
             this.comboBox1.Visible = false;
             // 
@@ -75,12 +80,14 @@ namespace Cards
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(282, 139);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lblAsk);
             this.Controls.Add(this.TextBox1);
             this.Name = "Form2";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
             this.ResumeLayout(false);
             this.PerformLayout();

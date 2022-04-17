@@ -203,26 +203,26 @@ namespace BOLayer
         {
             // Compare both cards
             Card winningCard = CompareCards(PlayZone[0], PlayZone[1]);
-            Player winningPlayer;
+            Player trickWinner;
 
             // If winner card is played first, then leading player wins. 
             if (winningCard.FaceValue == PlayZone[0].FaceValue && winningCard.Suit == PlayZone[0].Suit)
             {
                 // Please note leading player is not necesarrily player 1.  
-                winningPlayer = PlayerLeadingTrick;
+                trickWinner = PlayerLeadingTrick;
             }
             else
             {
-                winningPlayer = OtherPlayer(PlayerLeadingTrick);
+                trickWinner = OtherPlayer(PlayerLeadingTrick);
             }
-            Tuple<Player, Card> WinnerInfo = new Tuple<Player, Card>(winningPlayer, winningCard);
+            Tuple<Player, Card> WinnerInfo = new Tuple<Player, Card>(trickWinner, winningCard);
 
             // adds cards to the scorezone. 
-            winningPlayer.Score.AddCard(PlayZone[0]);
-            winningPlayer.Score.AddCard(PlayZone[1]);
+            trickWinner.Score.AddCard(PlayZone[0]);
+            trickWinner.Score.AddCard(PlayZone[1]);
 
             //passes turn to winning player
-            PlayerWhoCanPlay = winningPlayer;
+            PlayerWhoCanPlay = trickWinner;
 
             // clears board.
             PlayZone.DiscardHand();
@@ -235,8 +235,12 @@ namespace BOLayer
         /// </summary>
         /// <param name="roundWinner"></param> the player who one the round
         /// <returns></returns> the player who won the round.
-        public Player IfRoundEnd(out Player roundWinner)
+        public Player IfRoundEnd(out Player roundWinner, Player winningPlayer)
         {
+            if (P1.PlayerHand.Count == 0 || P2.PlayerHand.Count == 0)
+            {
+                return roundWinner = winningPlayer;
+            }
             if (P1.Score.getScore() >= 66)
             {
                 return roundWinner = P2;
@@ -271,7 +275,10 @@ namespace BOLayer
             RoundWinner.GamePoints += PointsAwared;
 
             P1.PlayerHand.DiscardHand();
+            P1.Score.DiscardHand();
             P2.PlayerHand.DiscardHand();
+            P2.Score.DiscardHand();
+
 
             Setup();
         }
