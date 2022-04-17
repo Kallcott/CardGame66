@@ -88,7 +88,7 @@ namespace Cards
             this.Controls.Add(this.TextBox1);
             this.Name = "Form2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form2";
+            this.Text = "Game Setup";
             this.ResumeLayout(false);
             this.PerformLayout();
 
