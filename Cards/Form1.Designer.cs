@@ -86,7 +86,7 @@
             this.lblPlayerZoneP1.AutoSize = true;
             this.lblPlayerZoneP1.BackColor = System.Drawing.SystemColors.Control;
             this.lblPlayerZoneP1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlayerZoneP1.Location = new System.Drawing.Point(496, 224);
+            this.lblPlayerZoneP1.Location = new System.Drawing.Point(469, 287);
             this.lblPlayerZoneP1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblPlayerZoneP1.Name = "lblPlayerZoneP1";
             this.lblPlayerZoneP1.Size = new System.Drawing.Size(67, 20);
@@ -158,7 +158,7 @@
             this.lblScoreP1.AutoSize = true;
             this.lblScoreP1.BackColor = System.Drawing.SystemColors.Control;
             this.lblScoreP1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblScoreP1.Location = new System.Drawing.Point(230, 9);
+            this.lblScoreP1.Location = new System.Drawing.Point(263, 9);
             this.lblScoreP1.Margin = new System.Windows.Forms.Padding(5, 1, 5, 1);
             this.lblScoreP1.Name = "lblScoreP1";
             this.lblScoreP1.Size = new System.Drawing.Size(17, 20);
@@ -170,7 +170,7 @@
             this.lblScoreP2.AutoSize = true;
             this.lblScoreP2.BackColor = System.Drawing.SystemColors.Control;
             this.lblScoreP2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblScoreP2.Location = new System.Drawing.Point(825, 562);
+            this.lblScoreP2.Location = new System.Drawing.Point(858, 562);
             this.lblScoreP2.Margin = new System.Windows.Forms.Padding(5, 1, 5, 1);
             this.lblScoreP2.Name = "lblScoreP2";
             this.lblScoreP2.Size = new System.Drawing.Size(17, 20);
@@ -182,7 +182,7 @@
             this.lblGamePointsP1.AutoSize = true;
             this.lblGamePointsP1.BackColor = System.Drawing.SystemColors.Control;
             this.lblGamePointsP1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGamePointsP1.Location = new System.Drawing.Point(230, 257);
+            this.lblGamePointsP1.Location = new System.Drawing.Point(263, 257);
             this.lblGamePointsP1.Margin = new System.Windows.Forms.Padding(5, 1, 5, 1);
             this.lblGamePointsP1.Name = "lblGamePointsP1";
             this.lblGamePointsP1.Size = new System.Drawing.Size(17, 20);
@@ -194,7 +194,7 @@
             this.lblGamePointsP2.AutoSize = true;
             this.lblGamePointsP2.BackColor = System.Drawing.SystemColors.Control;
             this.lblGamePointsP2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGamePointsP2.Location = new System.Drawing.Point(825, 397);
+            this.lblGamePointsP2.Location = new System.Drawing.Point(858, 397);
             this.lblGamePointsP2.Margin = new System.Windows.Forms.Padding(5, 1, 5, 1);
             this.lblGamePointsP2.Name = "lblGamePointsP2";
             this.lblGamePointsP2.Size = new System.Drawing.Size(17, 20);
@@ -252,7 +252,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.Control;
             this.label1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(277, 299);
+            this.label1.Location = new System.Drawing.Point(276, 287);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(98, 20);

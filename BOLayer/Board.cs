@@ -243,7 +243,7 @@ namespace BOLayer
             }
             if (P1.Score.getScore() >= 66)
             {
-                return roundWinner = P2;
+                return roundWinner = P1;
             }
             if (P2.Score.getScore() >= 66)
             {
@@ -276,6 +276,7 @@ namespace BOLayer
 
             P1.PlayerHand.DiscardHand();
             P1.Score.DiscardHand();
+
             P2.PlayerHand.DiscardHand();
             P2.Score.DiscardHand();
 

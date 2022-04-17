@@ -75,6 +75,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -96,7 +97,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="images\70%25Transparency.png" />
-    <None Include="images\1backdrop1.jpg" />
     <Content Include="images\AceClubs.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

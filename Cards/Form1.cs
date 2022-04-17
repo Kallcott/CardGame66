@@ -148,7 +148,7 @@ namespace Cards
                 }
                 else
                 {
-                    this.txtResult = "Cancelled";
+                    Environment.Exit(1);
                 }
             }
 
@@ -254,8 +254,8 @@ namespace Cards
             //Refresh Hand
             ShowHand(pnlHandP1, aBoard.P1.PlayerHand);
             ShowHand(pnlHandP2, aBoard.P2.PlayerHand);
-            ShowHand(pnlScoreP1, aBoard.P1.PlayerHand);
-            ShowHand(pnlScoreP2, aBoard.P2.PlayerHand);
+            ShowHand(pnlScoreP1, aBoard.P1.Score);
+            ShowHand(pnlScoreP2, aBoard.P2.Score);
             ShowHand(pnlTrump, aBoard.Trump);
 
             if (roundWinner.GamePoints >= 7)
