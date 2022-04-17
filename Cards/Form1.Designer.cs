@@ -30,19 +30,23 @@
         {
             this.btnRedeal = new System.Windows.Forms.Button();
             this.btnHand2 = new System.Windows.Forms.Button();
-            this.Panel2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.Panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.pnlHandP2 = new System.Windows.Forms.Panel();
+            this.lblPlayerZoneP2 = new System.Windows.Forms.Label();
+            this.pnlHandP1 = new System.Windows.Forms.Panel();
+            this.lblPlayerZoneP1 = new System.Windows.Forms.Label();
             this.btnHand1 = new System.Windows.Forms.Button();
             this.pnlTrump = new System.Windows.Forms.Panel();
             this.pnlPlayZone = new System.Windows.Forms.Panel();
             this.pnlScoreP1 = new System.Windows.Forms.Panel();
             this.pnlScoreP2 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lblP1Score = new System.Windows.Forms.Label();
-            this.lblP2Score = new System.Windows.Forms.Label();
+            this.lblTrickZoneP1 = new System.Windows.Forms.Label();
+            this.lblTrickZoneP2 = new System.Windows.Forms.Label();
+            this.lblScoreP1 = new System.Windows.Forms.Label();
+            this.lblScoreP2 = new System.Windows.Forms.Label();
+            this.lblGamePointsP1 = new System.Windows.Forms.Label();
+            this.lblGamePointsP2 = new System.Windows.Forms.Label();
+            this.lblGameZoneP2 = new System.Windows.Forms.Label();
+            this.lblGameZoneP1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnRedeal
@@ -65,39 +69,39 @@
             this.btnHand2.Text = "Deal Hand2";
             this.btnHand2.Click += new System.EventHandler(this.btnHand2_Click);
             // 
-            // Panel2
+            // pnlHandP2
             // 
-            this.Panel2.Location = new System.Drawing.Point(17, 264);
-            this.Panel2.Margin = new System.Windows.Forms.Padding(2);
-            this.Panel2.Name = "Panel2";
-            this.Panel2.Size = new System.Drawing.Size(523, 102);
-            this.Panel2.TabIndex = 10;
+            this.pnlHandP2.Location = new System.Drawing.Point(17, 264);
+            this.pnlHandP2.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlHandP2.Name = "pnlHandP2";
+            this.pnlHandP2.Size = new System.Drawing.Size(523, 102);
+            this.pnlHandP2.TabIndex = 10;
             // 
-            // label2
+            // lblPlayerZoneP2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 249);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 13);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "Player 2";
+            this.lblPlayerZoneP2.AutoSize = true;
+            this.lblPlayerZoneP2.Location = new System.Drawing.Point(14, 249);
+            this.lblPlayerZoneP2.Name = "lblPlayerZoneP2";
+            this.lblPlayerZoneP2.Size = new System.Drawing.Size(45, 13);
+            this.lblPlayerZoneP2.TabIndex = 15;
+            this.lblPlayerZoneP2.Text = "Player 2";
             // 
-            // Panel1
+            // pnlHandP1
             // 
-            this.Panel1.Location = new System.Drawing.Point(17, 31);
-            this.Panel1.Margin = new System.Windows.Forms.Padding(2);
-            this.Panel1.Name = "Panel1";
-            this.Panel1.Size = new System.Drawing.Size(523, 102);
-            this.Panel1.TabIndex = 8;
+            this.pnlHandP1.Location = new System.Drawing.Point(17, 31);
+            this.pnlHandP1.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlHandP1.Name = "pnlHandP1";
+            this.pnlHandP1.Size = new System.Drawing.Size(523, 102);
+            this.pnlHandP1.TabIndex = 8;
             // 
-            // label1
+            // lblPlayerZoneP1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 13);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "Player 1";
+            this.lblPlayerZoneP1.AutoSize = true;
+            this.lblPlayerZoneP1.Location = new System.Drawing.Point(14, 9);
+            this.lblPlayerZoneP1.Name = "lblPlayerZoneP1";
+            this.lblPlayerZoneP1.Size = new System.Drawing.Size(45, 13);
+            this.lblPlayerZoneP1.TabIndex = 14;
+            this.lblPlayerZoneP1.Text = "Player 1";
             // 
             // btnHand1
             // 
@@ -141,61 +145,101 @@
             this.pnlScoreP2.Size = new System.Drawing.Size(544, 102);
             this.pnlScoreP2.TabIndex = 17;
             // 
-            // label3
+            // lblTrickZoneP1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(561, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(83, 13);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "Player 1\'s Score";
+            this.lblTrickZoneP1.AutoSize = true;
+            this.lblTrickZoneP1.Location = new System.Drawing.Point(561, 9);
+            this.lblTrickZoneP1.Name = "lblTrickZoneP1";
+            this.lblTrickZoneP1.Size = new System.Drawing.Size(72, 13);
+            this.lblTrickZoneP1.TabIndex = 18;
+            this.lblTrickZoneP1.Text = "\'s Trick Score";
             // 
-            // label4
+            // lblTrickZoneP2
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(561, 249);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 13);
-            this.label4.TabIndex = 19;
-            this.label4.Text = "Player 2\'s Score";
+            this.lblTrickZoneP2.AutoSize = true;
+            this.lblTrickZoneP2.Location = new System.Drawing.Point(561, 249);
+            this.lblTrickZoneP2.Name = "lblTrickZoneP2";
+            this.lblTrickZoneP2.Size = new System.Drawing.Size(72, 13);
+            this.lblTrickZoneP2.TabIndex = 19;
+            this.lblTrickZoneP2.Text = "\'s Trick Score";
             // 
-            // lblP1Score
+            // lblScoreP1
             // 
-            this.lblP1Score.AutoSize = true;
-            this.lblP1Score.Location = new System.Drawing.Point(660, 9);
-            this.lblP1Score.Name = "lblP1Score";
-            this.lblP1Score.Size = new System.Drawing.Size(13, 13);
-            this.lblP1Score.TabIndex = 20;
-            this.lblP1Score.Text = "0";
+            this.lblScoreP1.AutoSize = true;
+            this.lblScoreP1.Location = new System.Drawing.Point(688, 9);
+            this.lblScoreP1.Name = "lblScoreP1";
+            this.lblScoreP1.Size = new System.Drawing.Size(13, 13);
+            this.lblScoreP1.TabIndex = 20;
+            this.lblScoreP1.Text = "0";
             // 
-            // lblP2Score
+            // lblScoreP2
             // 
-            this.lblP2Score.AutoSize = true;
-            this.lblP2Score.Location = new System.Drawing.Point(660, 249);
-            this.lblP2Score.Name = "lblP2Score";
-            this.lblP2Score.Size = new System.Drawing.Size(13, 13);
-            this.lblP2Score.TabIndex = 21;
-            this.lblP2Score.Text = "0";
+            this.lblScoreP2.AutoSize = true;
+            this.lblScoreP2.Location = new System.Drawing.Point(688, 249);
+            this.lblScoreP2.Name = "lblScoreP2";
+            this.lblScoreP2.Size = new System.Drawing.Size(13, 13);
+            this.lblScoreP2.TabIndex = 21;
+            this.lblScoreP2.Text = "0";
+            // 
+            // lblGamePointsP1
+            // 
+            this.lblGamePointsP1.AutoSize = true;
+            this.lblGamePointsP1.Location = new System.Drawing.Point(688, 159);
+            this.lblGamePointsP1.Name = "lblGamePointsP1";
+            this.lblGamePointsP1.Size = new System.Drawing.Size(13, 13);
+            this.lblGamePointsP1.TabIndex = 22;
+            this.lblGamePointsP1.Text = "0";
+            // 
+            // lblGamePointsP2
+            // 
+            this.lblGamePointsP2.AutoSize = true;
+            this.lblGamePointsP2.Location = new System.Drawing.Point(688, 201);
+            this.lblGamePointsP2.Name = "lblGamePointsP2";
+            this.lblGamePointsP2.Size = new System.Drawing.Size(13, 13);
+            this.lblGamePointsP2.TabIndex = 24;
+            this.lblGamePointsP2.Text = "0";
+            // 
+            // lblGameZoneP2
+            // 
+            this.lblGameZoneP2.AutoSize = true;
+            this.lblGameZoneP2.Location = new System.Drawing.Point(570, 201);
+            this.lblGameZoneP2.Name = "lblGameZoneP2";
+            this.lblGameZoneP2.Size = new System.Drawing.Size(77, 13);
+            this.lblGameZoneP2.TabIndex = 25;
+            this.lblGameZoneP2.Text = "\'s Game Points";
+            // 
+            // lblGameZoneP1
+            // 
+            this.lblGameZoneP1.AutoSize = true;
+            this.lblGameZoneP1.Location = new System.Drawing.Point(570, 159);
+            this.lblGameZoneP1.Name = "lblGameZoneP1";
+            this.lblGameZoneP1.Size = new System.Drawing.Size(77, 13);
+            this.lblGameZoneP1.TabIndex = 26;
+            this.lblGameZoneP1.Text = "\'s Game Points";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1140, 446);
-            this.Controls.Add(this.lblP2Score);
-            this.Controls.Add(this.lblP1Score);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblGameZoneP1);
+            this.Controls.Add(this.lblGameZoneP2);
+            this.Controls.Add(this.lblGamePointsP2);
+            this.Controls.Add(this.lblGamePointsP1);
+            this.Controls.Add(this.lblScoreP2);
+            this.Controls.Add(this.lblScoreP1);
+            this.Controls.Add(this.lblTrickZoneP2);
+            this.Controls.Add(this.lblTrickZoneP1);
             this.Controls.Add(this.pnlScoreP2);
             this.Controls.Add(this.pnlScoreP1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblPlayerZoneP2);
+            this.Controls.Add(this.lblPlayerZoneP1);
             this.Controls.Add(this.pnlPlayZone);
-            this.Controls.Add(this.Panel2);
+            this.Controls.Add(this.pnlHandP2);
             this.Controls.Add(this.pnlTrump);
             this.Controls.Add(this.btnRedeal);
             this.Controls.Add(this.btnHand2);
-            this.Controls.Add(this.Panel1);
+            this.Controls.Add(this.pnlHandP1);
             this.Controls.Add(this.btnHand1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -209,18 +253,22 @@
 
         internal System.Windows.Forms.Button btnRedeal;
         internal System.Windows.Forms.Button btnHand2;
-        internal System.Windows.Forms.Panel Panel2;
-        internal System.Windows.Forms.Panel Panel1;
+        internal System.Windows.Forms.Panel pnlHandP2;
+        internal System.Windows.Forms.Panel pnlHandP1;
         internal System.Windows.Forms.Button btnHand1;
         internal System.Windows.Forms.Panel pnlTrump;
         internal System.Windows.Forms.Panel pnlPlayZone;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblPlayerZoneP1;
+        private System.Windows.Forms.Label lblPlayerZoneP2;
         internal System.Windows.Forms.Panel pnlScoreP1;
         internal System.Windows.Forms.Panel pnlScoreP2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label lblP1Score;
-        private System.Windows.Forms.Label lblP2Score;
+        private System.Windows.Forms.Label lblTrickZoneP1;
+        private System.Windows.Forms.Label lblTrickZoneP2;
+        private System.Windows.Forms.Label lblScoreP1;
+        private System.Windows.Forms.Label lblScoreP2;
+        private System.Windows.Forms.Label lblGamePointsP1;
+        private System.Windows.Forms.Label lblGamePointsP2;
+        private System.Windows.Forms.Label lblGameZoneP2;
+        private System.Windows.Forms.Label lblGameZoneP1;
     }
 }

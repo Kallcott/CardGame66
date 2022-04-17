@@ -10,11 +10,19 @@ namespace BOLayer
     public class Deck
     {
         private List<Card> deck = new List<Card>();
+        public int Count
+        {
+            get
+            {
+                return deck.Count();
+            }
+        }
 
         public Deck()
         {
             MakeDeck();
         }
+
 
         private void MakeDeck()
         {
@@ -37,7 +45,7 @@ namespace BOLayer
         {
             Random rGen = new Random();
             List<Card> newDeck = new List<Card>();
-            
+
             while (deck.Count > 0)
             {
                 int removeIndex = rGen.Next(0, (deck.Count));
@@ -54,15 +62,15 @@ namespace BOLayer
         public Hand DealHand(int number)
         {
             // check if any cards are left in the deck.  If there are not, throw exception
-            if(deck.Count == 0)
+            if (deck.Count == 0)
             {
                 throw new ConstraintException("There are no cards left in the deck.  Redeal");
             }
 
             // create a new Hand
-            Hand hand = new Hand();                       
-            
-            if(deck.Count < number)
+            Hand hand = new Hand();
+
+            if (deck.Count < number)
             {
                 number = deck.Count;
             }
@@ -87,9 +95,18 @@ namespace BOLayer
             else
             {
                 throw new ArgumentException("There are no cards in the deck to draw from - deal again");
-            }            
+            }
 
             return topCard;
+        }
+
+        public Card Trump()
+        {
+            if (deck.Count >= 1)
+            {
+                return deck[deck.Count() - 1];
+            }
+            return null;
         }
     }
 }

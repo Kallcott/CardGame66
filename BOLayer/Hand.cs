@@ -37,9 +37,8 @@ namespace BOLayer
             if (ContainsCard(newCard))
             {
                 throw new ConstraintException(newCard.FaceValue.ToString() + " of " +
-                    newCard.Suit.ToString() + " already exists in the Handsss");
+                    newCard.Suit.ToString() + " already exists in the Hands");
             }
-
             cards.Add(newCard);
         }
 
@@ -64,6 +63,18 @@ namespace BOLayer
             foreach (Card card in cards)
             {
                 if (card.FaceValue == cardToCheck.FaceValue && card.Suit == cardToCheck.Suit)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+        internal bool ContainsSuit(Suit suitToCheck)
+        {
+            foreach (Card card in cards)
+            {
+                if (card.Suit == suitToCheck)
                 {
                     return true;
                 }

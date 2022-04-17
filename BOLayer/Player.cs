@@ -11,11 +11,17 @@ namespace BOLayer
         private Hand playerHand = new Hand();
         private Hand score = new Hand();
         private int gamePoints;
-        public bool IsLeadingTrick { get; set; }
-        public int GamePoints { get; set; }
+        private string playerName;
+        public int GamePoints { get { return gamePoints; } set { gamePoints = value; } }
         public Hand PlayerHand { get { return playerHand; } set { playerHand = value; } }
         public Hand Score { get { return score; } set { score = value; } }
 
+        public string PlayerName { get { return playerName; } set { playerName = value; } }
+
+        public Player()
+        {
+
+        }
     }
 
 
