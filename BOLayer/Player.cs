@@ -17,11 +17,6 @@ namespace BOLayer
         public Hand Score { get { return score; } set { score = value; } }
 
         public string PlayerName { get { return playerName; } set { playerName = value; } }
-
-        public Player()
-        {
-
-        }
     }
 
 

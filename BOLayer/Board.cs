@@ -280,7 +280,6 @@ namespace BOLayer
             P2.PlayerHand.DiscardHand();
             P2.Score.DiscardHand();
 
-
             Setup();
         }
 

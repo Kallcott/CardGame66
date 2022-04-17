@@ -100,7 +100,7 @@ namespace BOLayer
             return topCard;
         }
 
-        public Card Trump()
+        internal Card Trump()
         {
             if (deck.Count >= 1)
             {

@@ -123,14 +123,26 @@ namespace Cards
             {
                 testDialog.TextBox1.Visible = true;
                 // Show testDialog as a modal dialog and determine if DialogResult = OK.
+                TryAgain:
+                testDialog.TextBox1.Text = "";
                 if (testDialog.ShowDialog(this) == DialogResult.OK)
                 {
+                    if (testDialog.TextBox1.Text.Length >= 6 )
+                    {
+                        MessageBox.Show("Please enter a name less than 6 characters");
+
+                        goto TryAgain;
+                    }
+                    else
+                    {
                     // Read the contents of testDialog's TextBox.
                     this.txtResult = testDialog.TextBox1.Text;
+
+                    }
                 }
                 else
                 {
-                    this.txtResult = "Cancelled";
+                    Environment.Exit(1);
                 }
             }
 
